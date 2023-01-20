@@ -9,7 +9,7 @@ temperatura: 20.43
 umidita: 54.91
 
 
-requirements: pip install minimalmodbus timeloop
+requirements: pip install minimalmodbus 
 
 default port /dev/ttyUSB0
 change permissions : sudo chmod 777 /dev/ttyUSB0 or add user to dialout group
