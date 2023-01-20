@@ -2,7 +2,6 @@
 import rospy
 import minimalmodbus
 import serial
-from timeloop import Timeloop
 import time
 from datetime import timedelta
 from temphum.srv import getTandH,getTandHResponse
