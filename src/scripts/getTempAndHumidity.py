@@ -28,7 +28,7 @@ def handle_getTempAndHumidity(req):
 def getSensorData():
     rospy.init_node('get_sensor_data_server')
     s = rospy.Service('getSensorData', getTandH, handle_getTempAndHumidity)
-    print("Ready to add two ints.")
+    print("Ready to return temperature & humidity")
     rospy.spin()
 
 
