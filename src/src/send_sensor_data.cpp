@@ -1,3 +1,11 @@
+/* *******************************
+Legge i dati di temperatura, umidità e irraggiamento dal servizio 
+/getSensorData
+
+Pubblica i dati ogni 10 secondi, insieme alle coordinate GPS sul sito emoncms.org
+
+*************/
+  
 #include "ros/ros.h"
 #include "temphum/getTandH.h"
 #include "temphum/getTandHResponse.h"
