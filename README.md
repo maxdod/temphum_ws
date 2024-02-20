@@ -1,5 +1,6 @@
 # temphum_ws
 Sarf service to get sensor data using temperature &amp; humidity SHT20 sensor modbus RTU
+Added sensor for radiation
 /getSensorData is the name of Service Server
 
 returns temperatura and umidita
@@ -12,9 +13,14 @@ umidita: 54.91
 
 requirements: pip install minimalmodbus 
 
-to build : catkin_make on temphum_directory
+to build : catkin_make on temphum_ws
 
-to run: rosrun temphum scripts/getTempAndHumidity.py
+to run: rosrun temphum scripts/getSolar.py
+
+Publish Data:
+rosrun temphum send_sensor_data
+
+
 
 default port /dev/ttyUSB0
 change permissions : sudo chmod 777 /dev/ttyUSB0 or add user to dialout group
