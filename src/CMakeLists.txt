@@ -35,6 +35,11 @@ catkin_package(
 include_directories(
   ${catkin_INCLUDE_DIRS}
 )
+add_executable(send_sensor_data src/send_sensor_data.cpp)
+
+target_link_libraries(send_sensor_data
+  ${catkin_LIBRARIES}
+)
 catkin_install_python(PROGRAMS scripts/getTempAndHumidity.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
