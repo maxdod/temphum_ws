@@ -25,7 +25,13 @@ def handle_getTempAndHumidity(req):
          umidita = instr.read_register(registeraddress=2,functioncode=4,number_of_decimals=2 )
     
    
-    #print (umidita)
+    try:
+        solare = instr.read_register(registeraddress=0,functioncode=3,number_of_decimals=0 )
+    except minimalmodbus.NoResponseError: 
+        time.sleep(1)
+        solare = instr.read_register(registeraddress=0,functioncode=3,number_of_decimals=0 )   
+    //print('Solare is: %.1f \r' % solare)
+    //time.sleep(1)
     
     time.sleep(1)
     try:
@@ -33,8 +39,8 @@ def handle_getTempAndHumidity(req):
     except minimalmodbus.NoResponseError: 
         time.sleep(1)
         temperatura = instr.read_register(registeraddress=1,functioncode=4,number_of_decimals=2 )   
-        print (temperatura)
-    return getTandHResponse(temperatura,umidita)
+        //print (temperatura)
+    return getTandHResponse(temperatura,umidita,solare)
 
 def getSensorData():
     rospy.init_node('get_sensor_data_server')
