@@ -6,11 +6,7 @@ from timeloop import Timeloop
 import time
 from datetime import timedelta
 from temphum.srv import getTandH,getTandHResponse
-instr = minimalmodbus.Instrument('/dev/ttyUSB0', 1)
-instr.serial.baudrate=9600
-instr.debug=True
-instr.mode= 'rtu'
-instr.clear_buffers_before_each_transaction = True
+
 #instr.close_port_after_each_call=True
 
 
@@ -43,6 +39,12 @@ def handle_getTempAndHumidity(req):
     return getTandHResponse(temperatura,umidita,solare)
 
 def getSensorData():
+    device = rospy.get_param('/get_sensor_data_server/port')
+    instr = minimalmodbus.Instrument(device, 1)
+    instr.serial.baudrate=9600
+    instr.debug=True
+    instr.mode= 'rtu'
+    instr.clear_buffers_before_each_transaction = True
     rospy.init_node('get_sensor_data_server')
     s = rospy.Service('getSensorData', getTandH, handle_getTempAndHumidity)
     print("Ready to get temperature and humidity")
@@ -50,4 +52,5 @@ def getSensorData():
 
 
 if __name__ == "__main__":  #main loop
+    
     getSensorData()
