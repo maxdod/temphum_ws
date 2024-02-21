@@ -1,6 +1,7 @@
+<?xml version="1.1"?>
 <launch>
-<arg name="device" default="/dev/ttyUSB0">
-<node name="node_name" pkg="temphum" type="getTempAndhumidity.py" output="screen" clear_params="true">
-                <param name="device" value="$(arg mode)" /> 
-         </node>
+<arg name="port" default="/dev/ttyUSB0"/>
+<node name="get_sensor_data_server" pkg="temphum" type="getTempAndHumidity.py" output="screen"> 
+<param name="port" value="$(arg port)" />   
+</node>
 </launch>
