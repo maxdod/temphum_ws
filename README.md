@@ -15,7 +15,7 @@ requirements: pip install minimalmodbus
 
 to build : catkin_make on temphum_ws
 
-to run: rosrun temphum scripts/getSolar.py
+to run: rosrun temphum scripts/getTempAndHumidity.py
 
 Publish Data:
 rosrun temphum send_sensor_data
